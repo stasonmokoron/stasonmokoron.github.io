@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>
+		c++
+	</title>
+	<script src="../rainbow-custom.min.js"></script>
+	<link href="../styles/pastie.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="../styles/style.css"/>
+</head>
+<body>
+
+	<header>
+		<code><var>&lt;web&gt;</var>-дизайн и программирование<span>_</span></code>
+	</header>
+	<main>
+		<div id="cnav">
+		<nav>
+		<img id="pushpin" src="../image/Pushpin.png"/>
+			<ul>
+				<li><a href="../index.html">Резюме</a></li>
+				<li><a href="programming.html">Программирование</a></li>
+				<li><a href="cpp.html">C++. Введение</a></li>
+				<li><a href="cout.html">Вывод данных</a></li>
+				<li><a href="variables.html">Переменные</a></li>
+				<li><a href="if_else.html">Ветвления</a></li>
+				<li><a href="../error.html">Циклы</a></li>
+				<li id = "end"><a href="../references.html">ЛИТЕРАТУРА</a></li>
+			</ul>
+		</nav>
+		</div>
+		
+		<section>
+			<article>
+				<h2>Язык программирования C++</h2>
+				<p>
+					<span class="word">С++</span> был создан Бьярном Страуструпом в середине 1980-х годов. 
+					Этот язык является расширением языка программирования <span class="word">C</span>, созданного в начале 1970-х годов компанией AT & T Bell Labs. 
+					<span class="word">C</span> был разработан для написания операционной системы <span class="word">Unix</span>, 
+					но также широко использовался для разработки системного программного обеспечения. 
+					<span class="word">C++</span> изначально предоставлял функции <span class="word">объектно-ориентированного программирования</span> 
+					(о нем мы будем говорить позже), а затем добавились общие возможности структурного программирования.
+					<sup><a href="http://python.cs.southern.edu/cppbook/progcpp.pdf"><acronym title="Fundamentals of Programming C++">[2]</acronym></a></sup>
+				</p>
+				<p> 
+					<span class="word">С++</span> широко используется в промышленности для разработки коммерческого программного обеспечения. 
+					С помощью этого языка разрабатываются сложные системы в бизнесе, науке и технике. 
+					В качестве примеров ПО, написанного на <span class="word">С++</span>, можно привести Microsoft Windows 8, Microsoft Office, 
+					macOS и Adobe Creative.<sup><a href="http://python.cs.southern.edu/cppbook/progcpp.pdf"><acronym title="Fundamentals of Programming C++">[2]</acronym></a></sup>
+				</p>
+			</article>
+			<article>
+				<h3>Создание программы на C++</h3>
+				<p> 
+					Для работы с языком программирования C++ нам понадобится среда разработки. На самом деле написать программы можно 
+					с помощью любого текстового редактора (например с помощью блокнота Windows). Но в таком случае нам придется одельно устанавливать 
+					компилятор, который будет переводить наш исходный код на языке C++ на машинный язык. Это достаточно трудоемкая задача, более
+					того решать ее нет смысла так как существует множество <span class="word">интегрированных сред разработки</span> 
+					(сокращенно <span class="word">IDE</span> от англ. <span class="word">integrated development environments</span>).
+					Эти среды одновременно включают в себя текстовые редакторы, компиляторы, <span class="word">отладчики</span> 
+					(программа, предназначенная для поиска ошибок в исходном коде)
+					и другие средства программирования, 
+					которые нам не придется устанавливать отдельно.
+					В качестве примера можно привести такие среды, как: <span class="word">Microsoft’s Visual Studio, the Eclipse Foundation’s Eclipse CDT, Apple’s XCode</span>.
+					<sup><a href="http://python.cs.southern.edu/cppbook/progcpp.pdf"><acronym title="Fundamentals of Programming C++">[2]</acronym></a></sup>
+					Мы с Вами в данном курсе будем использовать среду <span class="word">Dev-C++</span>. 
+				</p>
+				<p>					
+					<span class="word">Dev-C++</span> — это интегрированная среда для программирования на языках С и C++, 
+					работающая под управлением операционной системы Windows. 
+					Среда Dev-C++ распространяется свободно с исходными кодами (на Delphi) 
+					по лицензии GPL.
+				</p>
+				<p> 
+					Достоинства оболочки Dev-C++:
+					<ul>
+						<li>графический интерфейс;</li>
+						<li>русскоязычное меню;</li>
+						<li>встроенный отладчик GDB;</li>
+						<li>возможность создавать консольные и графические программы;</li>
+					</ul>
+				</p>
+				<p>
+					Скачать установщик среды вы можете с официальной страницы проекта: <a href="http://orwelldevcpp.blogspot.com/">http://orwelldevcpp.blogspot.com/</a>
+				</p>
+				
+				<p> 
+					Правильно написанные программы на С++ имеют особую структуру. Синтаксис должен быть верным, 
+					иначе компилятор будет генерировать сообщения об ошибках и не создаст исполняемый файл<sup><a href="http://python.cs.southern.edu/cppbook/progcpp.pdf"><acronym title="Fundamentals of Programming C++">[2]</acronym></a></sup>.
+				</p>
+			</article>
+			<article>
+				<h3>Общая структура простой программы на C++</h3>
+				<p> 
+					В листинге 1.1 представлена одна из простейших программ на C++, которая выводит на экран монитора 
+					сообщение: "Hello, World!"
+				</p>
+				
+<var class="listing">Листинг 1.1: Hello, World!</var>
+<pre>
+<code data-language="c">
+#include &lt;iostream&gt;
+int main() {
+	std::cout &lt;&lt; "Hello, World!";
+}
+</code>
+</pre>
+				<p> 
+					После выполнения данной программы будет выведено:
+				</p>	
+				<div class="console">
+					<code>Hello, World!</code>
+				</div>
+				<p> 
+					Итак, попытаемся разобраться что означают отдельные строчки из кода программы,
+					приведенной в листинге 1.1. Но начнем мы не с первой строчки, а со второй: 
+					
+<pre>
+<code data-language="c">
+int main() {
+</code>
+</pre>
+					</p> 
+					<p> 
+					Дело в том,
+					что именно вторая строка исходного кода программы и определяет реальное начало нашей программы. 
+					Здесь мы объявляем функцию с именем <span class="word">main</span>. 
+					Все программы на C++ должны содержать эту функцию, чтобы быть исполняемыми. 
+					Подробности о значении <span class="word">int</span> и круглых скобках появятся в следующих главах, а 
+					фигурные скобки указывают на начало и конец программы и называются <span class="word">операторными скобками</span>.
+					Операторными они называются потому что содержат в нутри себя <span class="word">операторы</span>.
+					<span class="word">Оператор</span> - это команда языка программирования высокого уровня.
+					Все, что находится в фигурных скобках после <span class="word">main</span>, называется
+					<span class="word">телом программы</span>.
+				</p>
+				<p> 
+					Тело нашей программы содержит только одно утверждение: </p>
+<pre>
+<code data-language="c">
+	std::cout &lt;&lt; "Hello, World!";
+</code>
+</pre>
+				<p>
+					Это утверждение указывает программе напечатать сообщение "Hello, World!" на экране. Данный оператор
+					называется <span class="word">оператор вывода</span>, так как он выводит сообщения
+					на экран монитора. Строка, которую нужно вывести указывается в кавычках после символов "&lt;&lt;".	
+					Все операторы в C++ должны оканчиваться точкой с запятой (;).
+				</p>
+				<p> 
+					Теперь вернемся к первой строчке программы:
+				</p>
+<pre>
+<code data-language="c">
+	#include &lt;iostream&gt;
+</code>
+</pre>
+				<p> 
+					Эта строка является <span class="word">директивой предварительной обработки</span>. 
+					(или <span class="word">директивой препроцессора</span>)
+					Все директивы предварительной обработки в исходном коде C начинаются с символа #. 
+					Служебное слово <span class="word">include</span> (включить) позволяет подключить к нашей 
+					программе дополнительную библиотеку <span class="word">iostream</span>.
+					Библиотека iostream содержит элементы, которые обрабатывают
+					вывод (печать) на дисплей, ввод пользовательских данных с клавиатуры и работу с файлами.
+					Один из элементов, использованных в листинге 1.1, std::cout, 
+					не является частью самого языка С. Этот элемент, наряду с другими вещами, 
+					связанными с вводом и выводом, был разработан на C, скомпилирован и 
+					хранится в библиотеке iostream. Поэтому, для того, чтобы использвать оператор вывода
+					std::cout нам необходимо подключить библиотеку iostream в 
+					начале программы<sup><a href="http://python.cs.southern.edu/cppbook/progcpp.pdf"><acronym title="Fundamentals of Programming C++">[2]</acronym></a></sup>.
+				</p>
+				<h3>Источники</h3>
+					<ol>
+						<li>Richard L. Halterman. Fundamentals of Programming C++. School of Computing Southern Adventist University., February 5, 2019</li>
+						<li>Learn C++., 2018. <a href="https://www.learncpp.com/">https://www.learncpp.com/</a></li>
+					</ol>
+			</article>
+		</section>
+
+	</main>
+<footer>
+  <a href="https://school42.nubex.ru"><img id="logo" src="../image/logo1.png"/></a>
+	<h2>&copy; Ткач Станислав Сергеевич</h2>
+</footer>
+</body>
+</html>

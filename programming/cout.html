@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>
+		Вывод информации на экран
+	</title>
+	<script src="../rainbow-custom.min.js"></script>
+	<link href="../styles/pastie.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="../styles/style.css"/>
+</head>
+<body>
+
+	<header>
+		<code><var>&lt;web&gt;</var>-дизайн и программирование<span>_</span></code>
+	</header>
+	<main>
+		<div id="cnav">
+		<nav>
+		<img id="pushpin" src="../image/Pushpin.png"/>
+			<ul>
+				<li><a href="../index.html">Резюме</a></li>
+				<li><a href="programming.html">Программирование</a></li>
+				<li><a href="cpp.html">C++. Введение</a></li>
+				<li><a href="cout.html">Вывод данных</a></li>
+				<li><a href="variables.html">Переменные</a></li>
+				<li><a href="if_else.html">Ветвления</a></li>
+				<li><a href="../error.html">Циклы</a></li>
+				<li id = "end"><a href="../references.html">ЛИТЕРАТУРА</a></li>
+			</ul>
+		</nav>
+	</div>
+		
+		<section>
+			<article>
+				<h2>Оператор вывода</h2>
+				<p>
+					В данном уроке мы рассмотрим способы вывода данных через <span class="word">консоль</span>.
+					Для начала определимся с тем, что мы будем понимать под термином консль.
+					<span class="word">Консоль</span> - это программные средства, обеспечивающие диалог между пользователем и программой.
+					Другое название консоли - <span class="word">интерфейс командной строки</span>.
+				</p>
+				<p> 
+					Для вывода сообщений пользователю через консоль мы будем использовать std::cout, 
+					который мы использовали в <a href="cpp.html">предыдущем уроке</a> в листинге 1.1: Hello, World!
+					(программа для вывода текста "Hello world!" на экран). 
+					Мы также рассмотрим способ получения информации от пользователя и
+					сделаем наши программы более интерактивными.<sup><a href="https://www.learncpp.com/"><acronym title="Learn C++">[1]</acronym></a></sup>
+				</p>
+			</article>
+			<article>
+				<h3>std::cout</h3>
+				<p> 
+					Библиотека <span class="word">iostream</span> содержит несколько инструментов, которые мы можем использовать. 
+					Одним из наиболее полезных является std::cout, который позволяет выводить данные на экран. Служебное слово 
+					<span class="word">cout</span> дословно означает <span class="word">вывод символов (character output)</span><sup><a href="https://www.learncpp.com/"><acronym title="Learn C++"> [1]</acronym></a></sup>
+				</p>
+				<p>					
+					Вспомним код программы из предыдущего урока:
+				</p>
+<var class="listing">Листинг 2.1: Hello, World!</var>
+<pre>
+<code data-language="c">
+#include &lt;iostream&gt;
+int main() {
+	std::cout &lt;&lt; "Hello, World!";
+}
+</code>
+</pre>
+				<p> 
+					В эту программу мы включили iostream, чтобы у нас был доступ к std::cout. 
+					Внутри нашей основной функции мы используем std::cout вместе с <span class="word">оператором вставки (&lt;&lt;)</span>, 
+					чтобы отправить текст "Hello world!" на консоль для печати. При запуске программы получаем следующий результат:
+				</p>
+				<div class="console">
+					<code>Hello, World!</code>
+				</div>
+				<p>
+					С помощью std::cout можно выводить не только текст, но и числа:
+				</p>
+				
+<var class="listing">Листинг 2.2: Вывод чисел</var>
+<pre>
+<code data-language="c">
+#include &lt;iostream&gt;
+int main() {
+	std::cout &lt;&lt; 7;
+}
+</code>
+</pre>
+				
+				<p> 
+					Результат:
+				</p>
+				<div class="console">
+					<code>7</code>
+				</div>
+			</article>
+			<article>
+				<h3>Использование директивы using</h3>
+				<p> 
+					Программу "Hello, World!" мы можем написать иначе, например так: 
+				</p>
+				
+<var class="listing">Листинг 2.3: Использование направленной директивы using</var>
+<pre>
+<code data-language="c">
+#include &lt;iostream&gt;
+using std::cout;
+int main() {
+	cout &lt;&lt; "Hello, World!";
+}
+</code>
+</pre>
+				<p> 
+					Директива <span class="word">using</span> в листинге 2.3 позволяет нам использовать более короткое имя для оператора вывода std::cout.
+					Мы можем опустить префикс std:: и использовать более короткое имя cout. Директива using std::cout; является необязательной, 
+					но если мы ее опускаем, мы должны использовать более длинное имя std::cout;
+					Имя std означает «стандартный» (англ. standart), а префикс std:: указывает, что cout является частью набора имен, 
+					называемых стандартным пространством имен.
+					Пространство имен std содержит имена для всех стандартных типов и функций C++.
+					Кроме std существуют и другие пространства имен, которые предоставляются сторонними разработчиками.<sup><a href="https://www.learncpp.com/"><acronym title="Learn C++"> [1]</acronym></a></sup> 
+				</p> 
+				<p> 
+					В то время как в листинге 2.3 имя cout стало известно компилятору с помощью его направленной директивы <span class="word">using</span>, 
+					в листинге 2.4 предоставляется общая директива <span class="word">using</span>, которая делает все имена в пространстве имен 
+					std доступными для компилятора.
+				</p>
+				
+<var class="listing">Листинг 2.4: Использование общей директивы using</var>
+<pre>
+<code data-language="c">
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+	cout &lt;&lt; "Hello, World!";
+}
+</code>
+</pre>
+				<p>
+					Данный подход имеет преимущества для написания программ. Общая директива позволяет программистам 
+					использовать более короткие имена, что позволяет сократить время написания кода.
+				</p>
+			</article>
+			<article>
+				<h3>Переход на новую строку</h3>
+				<p> 
+					Как вы думаете, что выведет на экран программа из листинга 2.5?
+				</p>
+				
+<var class="listing">Листинг 2.5: Использование нескольких операторов cout</var>
+<pre>
+<code data-language="c">
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+	cout &lt;&lt; "Hi!";
+	cout &lt;&lt; "My name is Alex.";
+}
+</code>
+</pre>
+				<p> 
+					Вопреки нашим ожиданиям результат выполнения программы будет следующим:
+				</p>
+				
+				<div class="console">
+					<code>Hi!My name is Alex.</code>
+				</div>
+				
+				<p> 
+					Если мы хотим фразу на новую строку, нам нужно указать консоли, когда перемещать курсор на следующую строку.
+					Один из способов сделать это - использовать std::endl. При выводе с помощью std::cout, std::endl печатает 
+					символ новой строки на консоли (в результате чего курсор перемещается в начало следующей строки). 
+					Дословно endl означает «конец строки» (англ. end line).<sup><a href="https://www.learncpp.com/"><acronym title="Learn C++"> [1]</acronym></a></sup>
+				</p>
+				
+<var class="listing">Листинг 2.6: Переход на новую строку с помощью std::endl</var>
+<pre>
+<code data-language="c">
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+	cout &lt;&lt; "Hi!" &lt;&lt; endl;
+	cout &lt;&lt; "My name is Alex." &lt;&lt; endl;
+}
+</code>
+</pre>
+				<p> 
+					Результат выполнения программы:
+				</p>
+				
+<div class="console">
+<pre>
+<code>
+Hi!
+My name is Alex.
+</code>
+</pre>
+</div>
+				<p> 
+					Кроме std::endl можно использовать специальный символ "\n", который также позволяет переместиться на новую строку:
+				</p>
+<var class="listing">Листинг 2.7: Переход на новую строку с помощью символа "\n"</var>
+<pre>
+<code data-language="c">
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+	cout &lt;&lt; "Hi!\n";
+	cout &lt;&lt; "My name is Alex.\n";
+}
+</code>
+</pre>
+				<p> 
+					Результат выполнения программы:
+				</p>
+				
+<div class="console">
+<pre>
+<code>
+Hi!
+My name is Alex.
+</code>
+</pre>
+</div>				
+				<p> 
+					Обратите внимание на то, что символ "\n" указывается внутри ковычек. 
+				</p>
+				<h3>Источники</h3>
+					<ol>
+						<li>Richard L. Halterman. Fundamentals of Programming C++. School of Computing Southern Adventist University., February 5, 2019</li>
+						<li>Learn C++., 2018. <a href="https://www.learncpp.com/">https://www.learncpp.com/</a></li>
+					</ol>
+			</article>
+		</section>
+
+	</main>
+<footer>
+  <a href="https://school42.nubex.ru"><img id="logo" src="../image/logo1.png"/></a>
+	<h2>&copy; Ткач Станислав Сергеевич</h2>
+</footer>
+</body>
+</html>
